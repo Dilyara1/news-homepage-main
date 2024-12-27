@@ -48,7 +48,7 @@ button {
 
 .header__toggle {
     display: none;
-    cursor: pointer;
+    background: none;
 }
 
 .header__menu-icon {
