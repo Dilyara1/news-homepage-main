@@ -49,7 +49,10 @@
   <main>
     <div class="content-grid">
       <section class="banner" id="home">
-        <img class="banner__image" src="./assets/images/image-web-3-desktop.jpg" alt="banner"/>
+        <picture class="banner__image">
+          <source srcset="./assets/images/image-web-3-mobile.jpg" media="(max-width: 600px)">
+          <img src="./assets/images/image-web-3-desktop.jpg" alt="banner">
+        </picture>
         <div class="banner__content">
           <h1 class="banner__title"> The Bright Future of Web 3.0?</h1>
           <div class="banner__description">
