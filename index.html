@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Frontend Mentor | News homepage</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <img src="./assets/images/logo.svg" alt="logo" />
+    </div>
+    <nav class="header__nav" aria-label="Main Navigation">
+      <button class="header__toggle"  aria-label="Toggle navigation" 
+      aria-expanded="false" onclick="toggleMenu(this)">
+        <img src="./assets/images/icon-menu.svg" alt="toggle" />
+      </button>
+      <div class="header__overlay"></div>
+      <div  class="header__menu">
+        <div class="header__menu-icon" onclick="closeMenu()" aria-label="Close menu">
+          <img src="./assets/images/icon-menu-close.svg" alt="close menu" />
+        </div>
+        <ul class="header__menu-list"> 
+          <li class="header__menu-item">
+            <a class="header__menu-link" href="#home">Home</a>
+          </li>
+          <li class="header__menu-item">
+            <a class="header__menu-link" href="#news">New</a>
+          </li>
+          <li class="header__menu-item">
+            <a class="header__menu-link" href="#popular">Popular</a>
+          </li>
+          <li class="header__menu-item">
+            <a class="header__menu-link">Trending</a>
+          </li>
+          <li class="header__menu-item">
+            <a class="header__menu-link">Categories</a>
+          </li>
+         </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="content-grid">
+      <section class="banner" id="home">
+        <img class="banner__image" src="./assets/images/image-web-3-desktop.jpg" alt="banner"/>
+        <div class="banner__content">
+          <h1 class="banner__title"> The Bright Future of Web 3.0?</h1>
+          <div class="banner__description">
+            <p class="banner__subtitle">We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
+              But is it really fulfilling its promise?</p>
+            <button class="banner__action"> READ MORE</button>
+          </div>
+        </div>
+      </section>
+      <section class="news" id="news">
+        <h1 class="news__title">New</h2>
+        <article class="news__item">
+          <h3 class="news__item-title"> Hydrogen VS Electric Cars</h3>
+          <p class="news__item-subtitle"> Will hydrogen-fueled cars ever catch up to EVs?</p>
+        </article>
+        <article class="news__item">
+          <h3 class="news__item-title"> The Downsides of AI Artistry</h3>
+          <p class="news__item-subtitle">  What are the possible adverse effects of on-demand AI image generation?</p>
+        </article>
+        <article class="news__item">
+          <h3 class="news__item-title">  Is VC Funding Drying Up?</h3>
+          <p class="news__item-subtitle"> Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+        </article>
+      </section>
+    </div>
+    <section class="stats" id="popular">
+      <article class="stats__item">
+        <img class="stats__image" src="./assets/images/image-retro-pcs.jpg" alt="retro" />
+        <div class="stats__content">
+          <h2 class="stats__title"> 01</h2>
+          <h3 class="stats__subtitle"> Reviving Retro PCs</h3>
+          <p class="stats__desc">What happens when old PCs are given modern upgrades?
+          </p>
+        </div>
+      </article>
+      <article class="stats__item">
+        <img class="stats__image" src="./assets/images/image-top-laptops.jpg" alt="laptops" />
+        <div class="stats__content">
+          <h2 class="stats__title"> 02</h2>
+          <h3 class="stats__subtitle"> Top 10 Laptops of 2022</h3>
+          <p class="stats__desc">Our best picks for various needs and budgets.
+          </p>
+        </div>
+      </article>
+      <article class="stats__item">
+        <img class="stats__image" src="./assets/images/image-gaming-growth.jpg" alt="growth" />
+        <div class="stats__content">
+          <h2 class="stats__title"> 03</h2>
+          <h3 class="stats__subtitle"> The Growth of Gaming</h3>
+          <p class="stats__desc">How the pandemic has sparked fresh opportunities.
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer  class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Dilyara</a>.
+  </footer>
+</body>
+<script>
+  function toggleMenu(button) {
+  const menu = document.querySelector('.header__menu');
+  const overlay = document.querySelector('.header__overlay');
+  const isOpen = menu.classList.toggle('open');
+  
+  overlay.classList.toggle('active', isOpen);
+  button.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : ''; // Prevent scrolling when menu is open
+}
+
+function closeMenu() {
+  const menu = document.querySelector('.header__menu');
+  const overlay = document.querySelector('.header__overlay');
+  const toggleButton = document.querySelector('.header__toggle');
+
+  menu.classList.remove('open');
+  overlay.classList.remove('active');
+  toggleButton.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = ''; // Restore scrolling
+}
+
+document.querySelector('.header__overlay').addEventListener('click', () => {
+  closeMenu()
+})
+
+const menuLinks = document.querySelectorAll('.header__menu-link');
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    closeMenu()
+  });
+});
+</script>
+</html>
+

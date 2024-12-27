@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: "Inter", serif;
+    font-size: 15px;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+  
+ul {
+    list-style: none;
+}
+  
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 150px 0; 
+}
+
+.header__menu-item {
+    display: inline-block;
+    color: hsl(236, 13%, 42%);
+    cursor: pointer;
+}
+
+.header__menu-item:hover {
+    color:hsl(5, 85%, 63%);
+}
+
+.header__menu-item:not(:last-child) {
+    padding-right: 40px;
+}
+
+.header__toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.header__menu-icon {
+    display: none;
+    justify-content: flex-end;
+}
+
+.header__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.header__overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+main {
+    padding: 50px 150px;
+
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.banner__image {
+    width: 100%;
+    height: auto;
+}
+
+.banner__title {
+    font-size: 3rem;
+}
+
+.banner__content {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.banner__subtitle {
+    color: hsl(236, 13%, 42%);
+    line-height: 1.5rem;
+}
+
+.banner__action {
+    margin-top: 30px;
+    color: hsl(240, 100%, 5%);
+    font-weight: 500;
+    padding: 8px 16px;
+    background-color: hsl(5, 85%, 63%);
+    font-size: 18px;
+}
+
+.banner__action:hover {
+    background-color:hsl(240, 100%, 5%);
+    color: white;
+}
+
+.news { 
+    padding: 16px;
+    background-color: hsl(240, 100%, 5%);
+}
+
+.news__title {
+    color: hsl(35, 77%, 62%);
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+}
+
+.news__item:not(:last-child) {
+    border-bottom: 1px solid hsl(233, 8%, 79%);
+}
+
+.news__item-title, .news__item-subtitle {
+    color: white;
+}
+
+.news__item-title {
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+.news__item-title:hover {
+    color: hsl(35, 77%, 62%);
+}
+
+.news__item-subtitle {
+    margin-top: 16px;
+    padding-bottom: 24px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 50px;
+}
+
+.stats__item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.stats__image {
+    width: 100px;
+    height: auto;
+}
+
+.stats__title {
+    color: hsl(5, 85%, 63%);
+    margin-bottom: 16px;
+    font-size: 2rem;
+}
+
+.stats__subtitle {
+    margin-bottom: 16px;
+    cursor: pointer
+}
+
+.stats__subtitle:hover {
+    color:hsl(5, 85%, 63%);
+}
+
+.stats__desc {
+    color: hsl(236, 13%, 42%);
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media (max-width: 768px) {
+    .header__nav-list {
+      flex-direction: column;
+      display: none;
+    }
+  
+    .header__toggle {
+      display: inline-block;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding: 24px 16px;
+    }
+
+    .header {
+        padding: 20px 16px;
+    }
+
+    .banner__content {
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .header__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        width: 70%;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        transition: right 0.3s ease-in-out;
+        z-index: 200;
+      }
+      
+      .header__menu.open {
+        right: 0;
+      }
+
+    .header__menu-list {
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .header__menu-item {
+        font-size: 2rem;
+    }
+
+    .header__menu-icon {
+        display: flex;
+        cursor: pointer;
+    }
+  }
+  
